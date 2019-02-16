@@ -150,21 +150,21 @@
 	- # Comment
 	- INSTRUCTION arguments
 - FROM
-	- FROM <image> / FROM <image>:<tag>
+	- FROM < image > / FROM < image >:< tag >
 	- 已经存在的镜像
 	- 基础镜像
 	- 必须是第一条非注释指令
 - MAINTAINER
-	- MAINTAINER <name>
+	- MAINTAINER < name >
 	- 指定镜像作者信息 包含镜像所有者和联系信息
 - RUN
 	- 在镜像构建过程中运行的命令
-	- RUN <command> (shell模式)
+	- RUN < command > (shell模式)
 		- 以/bin/sh -c command的形式执行 `RUN echo hello`
 	- RUN ["executable", "param1", "param2"...]  (exec模式)
 		- 能够以其他形式的shell运行命令 `RUN ["/bin/bash", "-c", "echo hello"]`
 - EXPOSE
-	- EXPOSE <port>
+	- EXPOSE <  port  >
 	- 声明应用程序可能会使用的端口
 	- 使用docker run命令时仍然需要用-p选项打开对应的端口
 - CMD
@@ -179,16 +179,16 @@
 	- ENTRYPOINT command param1 param2 (shell模式)
 - ADD/COPY
 	- 将文件或目录复制到用Dockerfile构建的镜像中
-	- ADD/COPY <src> ... <dest>
-	- ADD/COPY ["<src>" ... "<dest>"]  (适用于文件路径中含有空格的情况)
+	- ADD/COPY < src > ... < dest >
+	- ADD/COPY ["< src >" ... "< dest >"]  (适用于文件路径中含有空格的情况)
 	- 目标路径需要使用镜像中的绝对路径
 	- ADD包含类似tar的解压功能 如果单纯复制文件 推荐使用COPY
 - WORKDIR
 	- 指定容器创建时的工作目录 CMD和ENTRYPOINT指令都将在该目录下执行
 	- 推荐使用绝对路径 如果使用相对路径工作路径将会一直传递
 - ENV
-	- ENV <key> <value>
-	- ENV <key>=<value>
+	- ENV < key > < value >
+	- ENV < key >=< value >
 	- 指定镜像构建时的环境变量
 - USER
 	- USER user/USER uid/USER user:group/USER uid:gid/USER uerr:gid/USER uid/group
