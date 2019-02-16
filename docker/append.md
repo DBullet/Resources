@@ -104,10 +104,10 @@
 - -f --force=false force removal of the image
 - --no-prune=false do not delete untaged parents
 
-##获取和推送镜像
+## 获取和推送镜像
 
 #### 查找镜像
-- 在docker hub上搜索 [hub.docker.com](hub.docker.com)
+- 在docker hub上搜索 https://hub.docker.com
 - `docker search [OPTIONS] TERM`
 	- --automated=false Only show autamated builds
 	- --no-trunc=false Do not truncate output
@@ -121,7 +121,7 @@
 	- 使用registry-mirror选项
 		- 修改/etc/default/docker
 		- 添加DOCKER_OPTS="--registry-mirror=http://MIRROR-ADDR"
-	- www.doucloud.io
+	- www.daocloud.io
 
 #### 推送镜像
 - `docker push NAME[:TAG]`
