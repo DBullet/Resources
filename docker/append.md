@@ -147,7 +147,7 @@
 
 #### Dockerfile指令
 - 指令格式
-	- # Comment
+	- \# Comment
 	- INSTRUCTION arguments
 - FROM
 	- FROM < image > / FROM < image >:< tag >
