@@ -133,7 +133,7 @@
 	- -m, --message="" Commit message
 	- -p, --pause=true Pause container during commit
 
-- 使用Dockerfile构建容器
+- 使用Dockerfile构建镜像
 	- 创建Dockerfile文件
 	- `docker build [OPTIONS] PATH | URL | - `
 		- --false-rm=false
@@ -143,4 +143,66 @@
 		- --rm=true
 		- -t, --tag=""
 
+## Dockerfile
 
+#### Dockerfile指令
+- 指令格式
+	- # Comment
+	- INSTRUCTION arguments
+- FROM
+	- FROM <image> / FROM <image>:<tag>
+	- 已经存在的镜像
+	- 基础镜像
+	- 必须是第一条非注释指令
+- MAINTAINER
+	- MAINTAINER <name>
+	- 指定镜像作者信息 包含镜像所有者和联系信息
+- RUN
+	- 在镜像构建过程中运行的命令
+	- RUN <command> (shell模式)
+		- 以/bin/sh -c command的形式执行 `RUN echo hello`
+	- RUN ["executable", "param1", "param2"...]  (exec模式)
+		- 能够以其他形式的shell运行命令 `RUN ["/bin/bash", "-c", "echo hello"]`
+- EXPOSE
+	- EXPOSE <port>
+	- 声明应用程序可能会使用的端口
+	- 使用docker run命令时仍然需要用-p选项打开对应的端口
+- CMD
+	- 在容器启动时运行的命令 会被docker run命令的command选项覆盖 用来指定容器启动时的默认行为
+	- CMD ["executable", "param1", "param2"...]  (exec模式)
+	- CMD command param1 param2 (shell模式)
+	- CMD ["param1", "param2"]  (作为ENTRYPOINT指令的默认参数)
+- ENTRYPOINT
+	- 与CMD指令类似 但不会被docker run命令中的启动命令command选项覆盖
+	- 用--entrypoint=""选项覆盖
+	- ENTRYPOINT ["executable", "param1", "param2"...]  (exec模式)
+	- ENTRYPOINT command param1 param2 (shell模式)
+- ADD/COPY
+	- 将文件或目录复制到用Dockerfile构建的镜像中
+	- ADD/COPY <src> ... <dest>
+	- ADD/COPY ["<src>" ... "<dest>"]  (适用于文件路径中含有空格的情况)
+	- 目标路径需要使用镜像中的绝对路径
+	- ADD包含类似tar的解压功能 如果单纯复制文件 推荐使用COPY
+- WORKDIR
+	- 指定容器创建时的工作目录 CMD和ENTRYPOINT指令都将在该目录下执行
+	- 推荐使用绝对路径 如果使用相对路径工作路径将会一直传递
+- ENV
+	- ENV <key> <value>
+	- ENV <key>=<value>
+	- 指定镜像构建时的环境变量
+- USER
+	- USER user/USER uid/USER user:group/USER uid:gid/USER uerr:gid/USER uid/group
+	- 指定镜像构建和容器运行时的操作用户
+- ONBUILD
+	- ONBUILD [INSTRUCTION]
+	- 镜像触发器 当一个镜像被其他镜像作为基础镜像时执行
+	- 会在构建过程中插入指令
+
+#### Dockerfile构建过程
+- 从基础镜像运行一个容器
+- 执行一条指令 对容器作出修改
+- 执行类似docker commit的操作 提交一个新的镜像层
+- 再基于刚提交的镜像运行一个新的容器
+- 执行Dockerfile中的吓一跳指令 直至所有指令执行完毕
+
+查看镜像构建过程 `docker history [image]`
