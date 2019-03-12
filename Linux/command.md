@@ -176,20 +176,20 @@
     
 **参数** | **作用**
 ----------------------- | --
-GPL ICMP_INFO PING \*NIX | 3745,
-ETN AGGRESSIVE IPs | 48,
-GPL ICMP_INFO PING BSDtype | 528,
-ET SCAN Suspicious inbound to mySQL port 3306 | 48,
-ET INFO Session Traversal Utilities for NAT (STUN Binding Response) | 124,
-ET SCAN Potential VNC Scan 5900-5920 | 7,
-ET SCAN Suspicious inbound to MSSQL port 1433 | 8,
-GPL ICMP_INFO PING BayRS Router | 9,
-GPL ICMP_INFO PING Flowpoint2200 or Network Management Software | 9,
-ET SCAN Suspicious inbound to PostgreSQL port 5432 | 6,
-ET SCAN Potential VNC Scan 5800-5820 | 2,
-ET SCAN HID VertX and Edge door controllers discover | 2,
-ET DNS DNS Lookup for localhost.DOMAIN.TLD | 1,
-ET SCAN Potential SSH Scan | 2,
-ET SCAN Rapid POP3 Connections - Possible Brute Force Attack | 1,
-GPL SCAN superscan echo | 120,
+GPL ICMP_INFO PING \*NIX | 3745
+ETN AGGRESSIVE IPs | 48
+GPL ICMP_INFO PING BSDtype | 528
+ET SCAN Suspicious inbound to mySQL port 3306 | 48
+ET INFO Session Traversal Utilities for NAT (STUN Binding Response) | 124
+ET SCAN Potential VNC Scan 5900-5920 | 7
+ET SCAN Suspicious inbound to MSSQL port 1433 | 8
+GPL ICMP_INFO PING BayRS Router | 9
+GPL ICMP_INFO PING Flowpoint2200 or Network Management Software | 9
+ET SCAN Suspicious inbound to PostgreSQL port 5432 | 6
+ET SCAN Potential VNC Scan 5800-5820 | 2
+ET SCAN HID VertX and Edge door controllers discover | 2
+ET DNS DNS Lookup for localhost.DOMAIN.TLD | 1
+ET SCAN Potential SSH Scan | 2
+ET SCAN Rapid POP3 Connections - Possible Brute Force Attack | 1
+GPL SCAN superscan echo | 120
 ET SCAN Suspicious inbound to Oracle SQL port 1521 | 2
